@@ -1,7 +1,7 @@
 ﻿Function Get-InstalledSQLFeatures([string] $Computer)
 {
 
-$Path = $Location
+$Path = $NodeLocation
 ${LocationCSV} = $Path  +"\SQLFeatures_${Computer}.csv"
 ${LocationXML} = $Path  +"\SQLFeatures_${Computer}.XML"
 

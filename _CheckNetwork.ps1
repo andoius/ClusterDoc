@@ -2,8 +2,8 @@
 Function CheckNetwork([string] $Hostname )
 {
 
-${LocationCSV} = ${Location} +"\CheckNetworkadapter_${HostName}.CSV"
-#${LocationXML} = ${Location} +"\CheckNetworkadapter_${HostName}.XML"
+${LocationCSV} = ${NodeLocation} +"\CheckNetworkadapter_${HostName}.CSV"
+#${LocationXML} = ${NodeLocation} +"\CheckNetworkadapter_${HostName}.XML"
 $netadapter=get-wmiobject -class win32_networkadapter -computername $hostname -errorvariable errorvar
 $netadapter =
 if (-not $errorvar)
@@ -13,8 +13,8 @@ $netadapter|export-csv -path ("${LocationCSV}") -NoTypeInformation
 
 }
 
-${LocationCSV} = ${Location} +"\CheckNetworkadapterSetting_${HostName}.CSV"
-#${LocationXML} = ${Location} +"\CheckNetworkadapterSetting_${HostName}.XML"
+${LocationCSV} = ${NodeLocation} +"\CheckNetworkadapterSetting_${HostName}.CSV"
+#${LocationXML} = ${NodeLocation} +"\CheckNetworkadapterSetting_${HostName}.XML"
 $netadapter=get-wmiobject -class Win32_NetworkAdapterSetting -computername $hostname -errorvariable errorvar
 
 if (-not $errorvar)
@@ -23,14 +23,14 @@ $netadapter|export-csv -path ("${LocationCSV}") -NoTypeInformation
 #($netadapter | ConvertTo-XML -NoTypeInformation).Save("${LocationXML}")
 }
 
-${LocationCSV} = ${Location} +"\CheckNetworkAdapterconfiguration_${HostName}.CSV"
-#${LocationXML} = ${Location} +"\CheckNetworkAdapterconfiguration_${HostName}.XML"
+${LocationCSV} = ${NodeLocation} +"\CheckNetworkAdapterconfiguration_${HostName}.CSV"
+#${LocationXML} = ${NodeLocation} +"\CheckNetworkAdapterconfiguration_${HostName}.XML"
 $netadapter=get-wmiobject -class win32_NetworkAdapterconfiguration -computername $hostname -errorvariable errorvar
 
 if (-not $errorvar)
 {
 $netadapter|export-csv -path ("${LocationCSV}") -NoTypeInformation
-($netadapter | ConvertTo-XML -NoTypeInformation).Save("${LocationXML}")
+#($netadapter | ConvertTo-XML -NoTypeInformation).Save("${LocationXML}")
 
 
 

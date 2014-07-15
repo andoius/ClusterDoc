@@ -1,8 +1,8 @@
 ﻿#Function to check the OS information on the host machine
 Function checkOS([string] $Hostname)
 {
-${LocationCSV} = ${Location} +"\CheckOS_${Hostname}.CSV"
-${LocationXML} = ${Location} +"\CheckOS_${Hostname}.XML"
+${LocationCSV} = ${NodeLocation} +"\CheckOS_${Hostname}.CSV"
+${LocationXML} = ${NodeLocation} +"\CheckOS_${Hostname}.XML"
 $os=get-wmiobject -class win32_operatingsystem -computername $hostname -errorvariable errorvar
 
 if (-not $errorvar)
@@ -50,8 +50,8 @@ write-host $message -background "GREEN" -foreground "BLACk"
 Function checkProcessor([string] $Hostname)
 
 {
-${LocationCSV} = ${Location} +"\CheckProcessor_${Hostname}.CSV"
-${LocationXML} = ${Location} +"\CheckProcessor_${Hostname}.XML"
+${LocationCSV} = ${NodeLocation} +"\CheckProcessor_${Hostname}.CSV"
+${LocationXML} = ${NodeLocation} +"\CheckProcessor_${Hostname}.XML"
 $processor=get-wmiobject -class win32_Processor -computername $hostname -errorvariable errorvar
 
 if (-not $errorvar)

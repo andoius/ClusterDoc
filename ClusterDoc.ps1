@@ -50,6 +50,15 @@ $ClusterNodes = GetClusterNodes $ClusterName
 
 foreach ($node in $ClusterNodes)
 {
+# Create Sub Folder to contain files
+
+# Creater string for folder
+$NodeLocation =  $Location +"\" + $node 
+
+#Create the folder
+new-item ${NodeLocation} -type directory -force
+
+
 $nodeName = $node | % {$_.Name}
 write-host "....NODE:${nodeName}"  -ForegroundColor green
 
